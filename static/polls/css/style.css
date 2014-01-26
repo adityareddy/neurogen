@@ -1,0 +1,43 @@
+html, body {
+  height: 100%;
+}
+body {
+  padding-top: 70px;
+  background: #ebeff2;
+}
+footer {
+  position: relative;
+  margin-top: -50px; /* negative value of footer height */
+  height: 50px;
+  clear:both;
+  padding-top:20px;
+} 
+
+#wrapper {
+  min-height: 100%;
+}
+
+#main{
+  overflow:auto;
+  padding-bottom:50px;
+}
+
+.well{
+    border-color:#efefef;
+    background-color:#fff;
+    -webkit-box-shadow:none;
+    -moz-box-shadow:none;
+    box-shadow:none;
+}
+
+.navbar {
+    min-height:60px;
+}
+.navbar-brand {
+padding: 19px 15px;
+}
+
+.navbar-nav>li>a {
+padding-top: 20px;
+padding-bottom: 20px;
+}

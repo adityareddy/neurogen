@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<div class="container">
+
+<h1>{{ poll.question }}</h1>
+<ul>
+{% for choice in poll.choice_set.all %}
+    <li>{{ choice.choice_text }}</li>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}

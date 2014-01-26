@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load nemo_tags %}
+
+{% block container %}
+<div class="panel panel-default col-sm-6 col-sm-offset-3">
+    <div class="panel-body">
+	    <form role="form" action="/nemo/" method="POST">
+				{% csrf_token %}
+                {% for field in form %}
+                    <div class="form-group">
+                        {{ field.errors }}
+                        {{ field.label_tag }} 
+                        {{field|addcss:"form-control"}}
+                    </div>
+                 {% endfor %}
+			<button type="submit" class="btn btn-primary btn-block">Fire!!!</button>
+		</form>
+	</div>
+</div>
+
+{% if search_str %}
+<div class="panel panel-default col-sm-6 col-sm-offset-3">
+    <div class="panel-body">
+         {{ search_str }}
+    </div>
+</div>
+{% endif %}
+
+{% if results %}
+<div class="panel panel-default col-sm-6 col-sm-offset-3">
+    <div class="panel-body">
+              
+            {% for result in results.results.bindings %}
+                <ul>    
+                    {%  for key, res in result.items %}
+                       <li> 
+                            <strong>{{ key }}-</strong>
+                            <ul>
+                            {%  for key, value in res.items %}
+                            <li><strong>{{ key }}- </strong>{{ value|safe}}</li>
+                            {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>   
+            {% endfor %}
+
+           
+    </div>
+</div>
+{% endif %}
+
+{% if results %}
+<div class="panel panel-default col-sm-6 col-sm-offset-3">
+    <div class="panel-body">
+                {{results}}
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

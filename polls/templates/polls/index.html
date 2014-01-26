@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block container %}
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+<h3>WelloCommo to my Polls APPOOO</h3>
+
+    {% if latest_poll_list %}
+          <ul>
+    {% for poll in latest_poll_list %}
+        <li><a href="/polls/{{ poll.id }}/">{{ poll.question }}</a></li>
+    {% endfor %}
+       </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs »</a>
+        </p>
+      </div>
+<div class="panel panel-default col-sm-6 col-sm-offset-3">
+
+								  	<div class="panel-body">
+								  		<form role="form" action="index.html?lang=en&amp;v=v1.9.4">
+									  		<div class="form-group">
+									    		<label for="exampleInputEmail1">Full Name</label>
+									    		<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Your full name">
+									  		</div>
+								  	  		<div class="form-group">
+									    		<label for="exampleInputEmail1">Email address</label>
+									    		<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+									  		</div>
+									  		<div class="form-group">
+									    		<label for="exampleInputPassword1">Password</label>
+									    		<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+									  		</div>
+								    		<div class="form-group">
+									    		<label for="exampleInputPassword1">Confirm Password</label>
+									    		<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Retype Password">
+									  		</div>
+									  		<button type="submit" class="btn btn-primary btn-block">Create Account</button>
+										</form>
+							  		</div>
+								
+								</div>
+{% endblock %}
